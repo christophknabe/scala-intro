@@ -1,0 +1,6 @@
+#Scala Build Server
+/.bsp/
+#IntelliJ IDEA
+/.idea/
+#SBT
+target/
