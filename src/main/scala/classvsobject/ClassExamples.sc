@@ -20,11 +20,14 @@ println(s"abc1.b = ${abc1.b}")
 val abc2 = new Abc(42)
 println(s"abc2.a=${abc2.a}")
 
-
+//var is mutable, val is immutable
+//val or var in constructor makes the parameter an attribute.
+//val or var without visibility modifier is public.
 class Car(val manufacturer: String, var brand: String, var model: String) {
-  var speed: Double = 0;
-  var gear: Int = 0;
-  var isOn: Boolean = false;
+  private var speed: Double = 0;
+  private var gear: Int = 0;
+  protected var isOn: Boolean = false;
+  //How many atttributes? 6
 
   def start(keyType: String): String = {
     s"Car started using the $keyType"
@@ -69,7 +72,7 @@ class Toyota(transmission: String, brand: String, model: String)
     }
   }
 }
-
+// up to here at 22-06-07
 object Prediction {
   implicit class AgeFromName(name: String) {
     val r = new scala.util.Random

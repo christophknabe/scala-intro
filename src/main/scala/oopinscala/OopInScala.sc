@@ -93,3 +93,4 @@ bike.color
 bike.bikeType
 //bike.bikeColor
 //So each val/var parameter translates into an attribute.
+bike.maxSpeed()
