@@ -1,6 +1,7 @@
 import java.io.Serializable
 
-//Keyword object introduces a class and one single object of this class.
+//Keyword 'object' introduces an anonymous class
+// and one single object of this class.
 //This avoids the static/dynamic universes of Java or C++ programming.
 
 object Counter {
@@ -13,9 +14,25 @@ object Counter {
 Counter.incr()
 println(s"counter=${Counter.get}")
 
+// Why is that better than the Java/C++ approach with keyword 'static'?
+{
+  // If you need multiple counters, simply replace 'object' by 'class':
+  class Counter {
+    private var count: Int = 0
+    def get = count
+    def incr(): Unit = count+=1
+  }
+  // If you want to retain the old singleton API,
+  // create 1 instance with the name 'Counter':
+  val Counter = new Counter
+  Counter.incr()
+  Counter.incr()
+  println(s"counter2=${Counter.get}")
+}
+
 
 class Router(path: String) {
-  import Router._
+  import Router._ // Imports all names from the companion object.
   def get(): Response = getAction(path)
   def post(): Response = postAction(path)
   def patch(): Response = patchAction(path)
@@ -30,57 +47,9 @@ object Router {
 
   case class Response(baseUrl: String, path: String, action: String)
 
-  private def getAction(path: String): Response = {
-    Response(baseUrl, path, "GET")
-  }
-
-  private def postAction(path: String): Response = {
-    Response(baseUrl, path, "POST")
-  }
-
-  private def patchAction(path: String): Response = {
-    Response(baseUrl, path, "PATCH")
-  }
-
-  private def putAction(path: String): Response = {
-    Response(baseUrl, path, "PUT")
-  }
-
-  private def deleteAction(path: String): Response = {
-    Response(baseUrl, path, "DELETE")
-  }
-}
-
-
-sealed class BaeldungEnvironment extends Serializable {
-  val name: String = "int"
-}
-
-object BaeldungEnvironment {
-
-  case class ProductionEnvironment() extends BaeldungEnvironment {
-    override val name: String = "production"
-  }
-
-  case class StagingEnvironment() extends BaeldungEnvironment {
-    override val name: String = "staging"
-  }
-
-  case class IntEnvironment() extends BaeldungEnvironment {
-    override val name: String = "int"
-  }
-
-  case class TestEnvironment() extends BaeldungEnvironment {
-    override val name: String = "test"
-  }
-
-  def fromEnvString(env: String): Option[BaeldungEnvironment] = {
-    env.toLowerCase match {
-      case "int"        => Some(IntEnvironment())
-      case "staging"    => Some(StagingEnvironment())
-      case "production" => Some(ProductionEnvironment())
-      case "test"       => Some(TestEnvironment())
-      case _            => None
-    }
-  }
+  private def getAction(path: String): Response = Response(baseUrl, path, "GET")
+  private def postAction(path: String): Response = Response(baseUrl, path, "POST")
+  private def patchAction(path: String): Response = Response(baseUrl, path, "PATCH")
+  private def putAction(path: String): Response = Response(baseUrl, path, "PUT")
+  private def deleteAction(path: String): Response = Response(baseUrl, path, "DELETE")
 }
