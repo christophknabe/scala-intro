@@ -1,4 +1,4 @@
-import java.io.Serializable
+import java.io.{Serializable,File}
 
 //Keyword 'object' introduces an anonymous class
 // and one single object of this class.
@@ -14,8 +14,11 @@ object Counter {
 Counter.incr()
 println(s"counter=${Counter.get}")
 
+object Person {
+  def hello = "hello"
+}
 // Why is that better than the Java/C++ approach with keyword 'static'?
-{
+{ //This block opens a new name scope by which I avoid a name clash between outer and inner Counter.
   // If you need multiple counters, simply replace 'object' by 'class':
   class Counter {
     private var count: Int = 0
@@ -28,6 +31,12 @@ println(s"counter=${Counter.get}")
   Counter.incr()
   Counter.incr()
   println(s"counter2=${Counter.get}")
+  val counter3 = new Counter
+  counter3.incr()
+  // Local import example:
+  import java.io.File.pathSeparator
+  println(s"$pathSeparator")
+  Person.hello
 }
 
 

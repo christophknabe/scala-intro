@@ -9,7 +9,12 @@ This little course uses material from Baeldung.
 * Text [Classes and Objects in Scala](https://www.baeldung.com/scala/classes-objects)<br>
   Code [classvsobject](https://github.com/Baeldung/scala-tutorials/tree/master/scala-core-oop/src/main/scala/com/baeldung/scala/classvsobject)
 
-## Day 3 The Functional Side of Scala
-* Class vs Object, Companion Object<br>Code [ObjectExamples.sc](src/main/scala/classvsobject/ObjectExamples.sc) (left over from day 2)
+## Day 3 Class vs. Object vs. Case Class, Pattern Matching
+* Class vs Object, Companion Object<br>Code [ObjectExamples.sc](src/main/scala/classvsobject/ObjectExamples.sc)
+* Case Classes and Pattern Matching<br>
+  Code [PatternMatching.sc](src/main/scala/patternmatching/PatternMatching.sc)
+
+
+## Day 4 The Functional Side of Scala
 * Functions, Recursion, Tail recursion.<br>Code [F1Recursion.sc](src/main/scala/functions/F1Recursion.sc)
 * Higher Order Functions.<br>Code [F2HigherOrder.sc](src/main/scala/functions/F2HigherOrder.sc)
