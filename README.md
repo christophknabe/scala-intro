@@ -16,5 +16,7 @@ This little course uses material from Baeldung.
 
 
 ## Day 4 The Functional Side of Scala
+* [Why Functional Programming](src/main/scala/functions/F0WhyFunctional.md)
 * Functions, Recursion, Tail recursion.<br>Code [F1Recursion.sc](src/main/scala/functions/F1Recursion.sc)
 * Higher Order Functions.<br>Code [F2HigherOrder.sc](src/main/scala/functions/F2HigherOrder.sc)
+* Higher Order Methods in Collections.<br>Code [F3CollectionMethods.sc](src/main/scala/functions/F3CollectionMethods.sc)

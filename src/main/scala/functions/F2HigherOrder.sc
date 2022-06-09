@@ -11,7 +11,7 @@
 //Here are some iterative functions:
 //List is a generic type, parameterized with its element type.
 //Generic parameters are in Scala designated by square brackets []
-//Indexes are just as function arguments designated by round parentheses.
+//Indexes are just as function arguments designated by round parentheses ()
 def sum(list: List[Int]): Long = {
   var result: Long = 0
   for(item <- list){ //for each item in the list
@@ -30,7 +30,14 @@ def min(list: List[Int]): Long = {
 }
 //What is redundant, what is different between these functions?
 
-//Now a redundancy-free solution as a higher-order function, which accepts a function as parameter:
+
+
+
+
+
+//Now a redundancy-free solution by a higher-order function,
+// which accepts a function as parameter processItem:
+// Function processItem must map a Long and an Int to a Long.
 def fold(list: List[Int], start: Long, processItem: (Long, Int) => Long): Long = {
   var result = start
   for(item <- list){
@@ -38,8 +45,10 @@ def fold(list: List[Int], start: Long, processItem: (Long, Int) => Long): Long =
   }
   result
 }
+//Here we implement sum and min by using our higher-order function 'fold'.
 def sum2(list: List[Int]) = fold(list, 0, (accu, item) => accu+item)
 def min2(list: List[Int]) = fold(list, Int.MaxValue, (accu, item) => if(item<accu) item else accu)
+//Now we test them:
 val numbers = List(7,1,5,9,10,2,8,3,4,6)
 println(s"sum2(numbers)=${sum2(numbers)}")
 println(s"min2(numbers)=${min2(numbers)}")
@@ -52,6 +61,11 @@ println(s"min2(numbers)=${min2(numbers)}")
 // The function literals for different calls of fold:
 //   (accu, item) => accu+item
 //   (accu, item) => if(item<accu) item else accu
+
+
+//How would we compute the maximum of a List[Int]?
+def max(list: List[Int]) = ???
+println(s"max(numbers)=${max(numbers)}")
 
 // A fold function is already included into the Scala standard library for collections.
 // Note: foldLeft is a function with two parameter lists.

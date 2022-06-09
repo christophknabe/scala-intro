@@ -2,8 +2,9 @@ import scala.annotation.tailrec
 //Author: Christoph Knabe
 //2022-06-07
 
-//The result of a mathematical function only depends on its argument value.
 var x: Double = 25
+
+//The result of a mathematical function only depends on its argument value.
 //Two similar definitions. What is a function?
 def sqrt1(x: Double) = Math.sqrt(x)
 def sqrt2() = Math.sqrt(x)
@@ -20,10 +21,19 @@ sqrt2()
 
 //----------------
 
-//But how do we program loops without state?
-
 //Task: Compute the Gauss-sum (sum of 1 to n)
-//Traditional iterative solution with variable:
+//How do we do that in traditional style (iterative solution with variable)?
+
+
+
+
+
+
+
+
+
+
+
 def gaussIterative(n: Int): Long = {
   var result = 0L
   for(i <- 1 to n){
@@ -33,6 +43,15 @@ def gaussIterative(n: Int): Long = {
 }
 println(s"gaussIterative(1000) = ${gaussIterative(1000)}")
 
+//But how do we program a loop without state?
+
+
+
+
+
+
+
+
 //Recursive solution:
 def gaussRecursive(n: Int): Long = {
   if(n <= 0){ //guard clause for special case
@@ -40,7 +59,7 @@ def gaussRecursive(n: Int): Long = {
   }
   n + gaussRecursive(n-1)
 }
-//This has no variables.
+//How many variables does this algorithm have?
 println(s"gaussRecursive(1000) = ${gaussRecursive(1000)}")
 
 //But what about deep recursion?
@@ -55,6 +74,7 @@ def gaussTailRecursive(accu: Long, n: Int): Long = {
   gaussTailRecursive(accu+n, n-1)
 }
 //Tail-recursive means: The recursive call is the last action of the function.
+//Important here: The 'accu+n' is evaluated before the recursive call.
 println(s"gaussTailRecursive(100000) = ${gaussTailRecursive(0, 100000)}")
 
 //How can we guarantee that our function is tail-recursive?
@@ -69,7 +89,10 @@ def gaussTailrec(accu: Long, n: Int): Long = {
 //@tailrec assures that this function is really tail-recursive.
 println(s"gaussTailrec(100000) = ${gaussTailrec(0, 100000)}")
 
+//Let us test what happens if we put @tailrec before gaussRecursive!
 
+//By a tail-recursive function we can emulate a loop without variables,
+// as parameters in Scala are immutable.
 
 
 
