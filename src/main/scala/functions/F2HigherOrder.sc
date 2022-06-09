@@ -15,7 +15,7 @@
 def sum(list: List[Int]): Long = {
   var result: Long = 0
   for(item <- list){ //for each item in the list
-    result += item
+    result = result + item
   }
   result
 }
@@ -29,11 +29,6 @@ def min(list: List[Int]): Long = {
   result
 }
 //What is redundant, what is different between these functions?
-
-
-
-
-
 
 //Now a redundancy-free solution by a higher-order function,
 // which accepts a function as parameter processItem:
@@ -64,12 +59,21 @@ println(s"min2(numbers)=${min2(numbers)}")
 
 
 //How would we compute the maximum of a List[Int]?
-def max(list: List[Int]) = ???
+def max(list: List[Int]) = {
+  fold(list, Int.MinValue, (accu, item) => if(item>accu) item else accu)
+}
 println(s"max(numbers)=${max(numbers)}")
 
 // A fold function is already included into the Scala standard library for collections.
 // Note: foldLeft is a function with two parameter lists.
-def sum3(list: List[Int]) = list.foldLeft(0)((accu, item) => accu+item)
+// Note: An block can serve as an argument list for a 1-parameter list. No round parentheses necessary!
+def sum3(list: List[Int]) = list.foldLeft(0) {
+  (accu, item) =>
+    print(s"accu=$accu, item=$item")
+    val result = accu+item
+    println(s", result=$result;")
+    result
+}
 def min3(list: List[Int]) = list.foldLeft(Int.MaxValue)((accu, item) => if(item<accu) item else accu)
 val numbers = List(7,1,5,9,10,2,8,3,4,6)
 println(s"sum3(numbers)=${sum3(numbers)}")

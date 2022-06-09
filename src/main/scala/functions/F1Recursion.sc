@@ -2,18 +2,18 @@ import scala.annotation.tailrec
 //Author: Christoph Knabe
 //2022-06-07
 
-var x: Double = 25
+var state: Double = 25
 
 //The result of a mathematical function only depends on its argument value.
 //Two similar definitions. What is a function?
 def sqrt1(x: Double) = Math.sqrt(x)
-def sqrt2() = Math.sqrt(x)
+def sqrt2() = Math.sqrt(state)
 
 sqrt1(25)
 sqrt2()
 
-x = x*x
-println(s"x modified to $x")
+state = state*state
+println(s"x modified to $state")
 
 sqrt1(25)
 sqrt2()
@@ -23,17 +23,6 @@ sqrt2()
 
 //Task: Compute the Gauss-sum (sum of 1 to n)
 //How do we do that in traditional style (iterative solution with variable)?
-
-
-
-
-
-
-
-
-
-
-
 def gaussIterative(n: Int): Long = {
   var result = 0L
   for(i <- 1 to n){
@@ -44,14 +33,6 @@ def gaussIterative(n: Int): Long = {
 println(s"gaussIterative(1000) = ${gaussIterative(1000)}")
 
 //But how do we program a loop without state?
-
-
-
-
-
-
-
-
 //Recursive solution:
 def gaussRecursive(n: Int): Long = {
   if(n <= 0){ //guard clause for special case
@@ -71,7 +52,7 @@ def gaussTailRecursive(accu: Long, n: Int): Long = {
   if(n <= 0){ //guard clause for special case
     return accu
   }
-  gaussTailRecursive(accu+n, n-1)
+  gaussTailRecursive(n+accu, n-1)
 }
 //Tail-recursive means: The recursive call is the last action of the function.
 //Important here: The 'accu+n' is evaluated before the recursive call.
