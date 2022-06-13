@@ -21,7 +21,7 @@ This little course uses material from Baeldung.
 * Higher Order Functions.<br>Code [F2HigherOrder.sc](src/main/scala/functions/F2HigherOrder.sc)
 
 ## Day 5 2022-06-14 Control Abstraction and Higher Order Functions
-* Recap Why Functional Programming incl. Demo of Sequential vs. Parallel Computation: Project [gauss-sum](../gauss-sum/)
+* Recap Why Functional Programming incl. Demo of Sequential vs. Parallel Computation: Project [gauss-sum](../../../gauss-sum/)
 * Recap Tail Recursion
 * [Control Abstraction](src/main/scala/functions/F3ControlAbstraction.sc)
 * Higher Order Methods in Collections.<br>Code [F3CollectionMethods.sc](src/main/scala/functions/F3CollectionMethods.sc)
