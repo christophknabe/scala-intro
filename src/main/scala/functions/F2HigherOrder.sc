@@ -79,7 +79,24 @@ val numbers = List(7,1,5,9,10,2,8,3,4,6)
 println(s"sum3(numbers)=${sum3(numbers)}")
 println(s"min3(numbers)=${min3(numbers)}")
 
-// You can partially apply a function with multiple parameter lists,
-// but that is not very often useful:
-def zeroFold(list: List[Int]): ((Long, Int) => Long => Long) =
-  list.foldLeft(0)
+// Difference between **method** and **function**
+// a) A **method** is part of an object.
+// b) A **function** has an **apply method**.
+//Example:
+object Test {
+  def greet(name: String) = println(s"Hello, $name") //method or function?
+}
+Test.greet("Lisa")
+
+val greet: String => Unit = (name: String) => println(s"Hello, $name") //method or function?
+greet("Hans")
+
+
+
+// Check if something is a function. Does it have an apply method?
+greet.apply("Janine")
+
+// Transform a method to a function:
+val greet2 = Test.greet _
+greet2.apply("Kevin")
+greet("Kevin")

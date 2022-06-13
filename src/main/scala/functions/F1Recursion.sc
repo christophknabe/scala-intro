@@ -8,6 +8,7 @@ var state: Double = 25
 //Two similar definitions. What is a function?
 def sqrt1(x: Double) = Math.sqrt(x)
 def sqrt2() = Math.sqrt(state)
+// Question: How can we make sqrt2 a function?
 
 sqrt1(25)
 sqrt2()
@@ -38,7 +39,7 @@ def gaussRecursive(n: Int): Long = {
   if(n <= 0){ //guard clause for special case
     return 0
   }
-  n + gaussRecursive(n-1)
+  n+gaussRecursive(n-1)
 }
 //How many variables does this algorithm have?
 println(s"gaussRecursive(1000) = ${gaussRecursive(1000)}")
@@ -74,6 +75,3 @@ println(s"gaussTailrec(100000) = ${gaussTailrec(0, 100000)}")
 
 //By a tail-recursive function we can emulate a loop without variables,
 // as parameters in Scala are immutable.
-
-
-

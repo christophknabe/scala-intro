@@ -12,8 +12,8 @@
 ## Approaches to Parallel or Asynchronous Programming
 * **Threads** like in Java, with **synchronized** blocks
 * **Actors** like in Erlang (async message sending, sequential processing of inbox messages)
-* **Future** as a kind of organized callback.
-* Pure **Functional Programming** à la Haskell. Completely avoid state.
+* **Future**/**Promise** as a kind of organized callback.
+* Pure **Functional Programming** à la Haskell using IO **Monads**. Completely avoid state.
 
 ## Functional Style avoids State
 * A mathematical function does not have state.
