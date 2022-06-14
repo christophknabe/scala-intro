@@ -1,5 +1,5 @@
 // 2022-06-08 Christoph Knabe
-// Chapter: Predefined Collection Methods
+// Chapter: Predefined Higher-Order Collection Methods
 
 // Base data
 val concatenatedNames = "Sandra Anton Lisa Derrick Virginia Hans Mu Amir"

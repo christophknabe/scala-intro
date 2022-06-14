@@ -1,14 +1,16 @@
+import scala.annotation.tailrec
 // Control Abstraction
 //Author: Christoph Knabe
 //2022-06-10
 
-// What is a Control Structure?
+// Question: What is a Control Structure?
 
 // ScaLa is a Scalable Language. We can define our own control structures. How?
 
 // A Block is an Expression
 /* There is no big difference in Scala between a block {...} and an expression (...).
-* A block can contain many expressions, separated by ; or newline.
+* A block contains many expressions, separated by ; or newline,
+*   which are evaluated in sequence.
 * A block also is an expression, which returns the value of its last expression.
  */
 val block1 = {
@@ -18,7 +20,7 @@ val block1 = {
 }
 val block2 = {4; 5; 6}
 
-// An argument list with one argument can be satisfied by a block
+// An parameter list with one parameter can be satisfied by a block as argument list.
 def sqrt(x: Double) = Math.sqrt(x)
 val srqtOf25 = sqrt(25)
 val sqrtOf100 = sqrt{
@@ -28,19 +30,19 @@ val sqrtOf100 = sqrt{
 }
 
 // A method/function can have multiple parameter lists
-def power(x: Double)(y: Double) = Math.pow(x, y)
+def power(base: Double)(exponent: Double) = math.pow(base, exponent)
 // So we can transform a function with two parameters
 // into a function with two parameter lists of length 1.
-// So we can provide a block as argument.
+// Now we can provide a block as argument.
 val base2power10 = power(2){
   println("Passing the exponent")
   10
 }
 
 // Call-by-Name Parameters
-/* Scala has a feature which already existed in the old languages
+/* Scala has a feature which already existed in the pioneer languages
 * LISP 1956 and Algol 1960:
-* "Call-by-Name parameters"
+* "Call-by-Name" parameters.
 * Not the argument value is passed into the function execution,
 * but the argument expression.
 * It is evaluated every time the parameter is applied, that means 0..n times.
@@ -87,12 +89,11 @@ log(DEBUG, "DEBUG: Our current log level is " + logLevel)
 // Second usage: Multiple evaluation
 
 // We write our own simple loop:
+@tailrec
 def repeat(count: Int)(body: => Unit): Unit = {
-  var i = count
-  while(i > 0){
-    body //is evaluated every time the while loop passes here
-    i -= 1
-  }
+  if(count <= 0){ return }
+  body
+  repeat(count - 1)(body)
 }
 repeat(10){
   println("==========")

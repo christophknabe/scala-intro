@@ -23,11 +23,20 @@ This little course uses material from Baeldung.
 ## Day 5 2022-06-14 Control Abstraction and Higher Order Functions
 * Recap Why Functional Programming incl. Demo of Sequential vs. Parallel Computation: Project [gauss-sum](../../../gauss-sum/)
 * Recap Tail Recursion
-* [Control Abstraction](src/main/scala/functions/F3ControlAbstraction.sc)
-* Higher Order Methods in Collections.<br>Code [F3CollectionMethods.sc](src/main/scala/functions/F3CollectionMethods.sc)
+* [F3ControlAbstraction.sc](src/main/scala/functions/F3ControlAbstraction.sc)
+* Higher Order Methods in Collections.<br>Code [F4CollectionMethods.sc](src/main/scala/functions/F4CollectionMethods.sc)
 
 ## Day 6 2022-06-15 Build & Test
 * Build Tool [SBT](https://www.scala-sbt.org/)
 * Our [build.sbt](build.sbt) SBT build script
 * Structure of a mixed Scala/Java Project
 * [Different Test Styles with ScalaTest](src/test/scala/testDemo/)
+
+## Missing Topics for Introductory Course
+* val/var
+* lazy val
+* AnyVal/AnyRef, Type Hierarchy
+* Traits, Mixin-Programming
+* Collections: mutable/immutable, Collection Hierarchy
+* Option, Either for expressing optionality, failure
+* for comprehension
