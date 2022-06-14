@@ -30,6 +30,9 @@ This little course uses material from Baeldung.
 * Build Tool [SBT](https://www.scala-sbt.org/)
 * Our [build.sbt](build.sbt) SBT build script
 * Structure of a mixed Scala/Java Project
+* Life Cycle: `sbt clean`, `sbt compile`, `sbt test`, `sbt package` 
+* Run the `Main` object from command line: `sbt run`
+* Import an **SBT** project into your IDE: `actor-ping-pong`
 * [Different Test Styles with ScalaTest](src/test/scala/testDemo/)
 
 ## Missing Topics for Introductory Course

@@ -37,4 +37,4 @@ libraryDependencies ++= Seq(
 // to method org.apache.commons.lang3.StringUtils.isBlank
 // IDE downloads the source code of used libraries!
 
-// Proceed to Test Drivers
+// Proceed to Structure of a Mixed Scala/Java Project.

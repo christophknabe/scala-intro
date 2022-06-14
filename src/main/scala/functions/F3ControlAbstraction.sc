@@ -21,7 +21,7 @@ val block1 = {
 val block2 = {4; 5; 6}
 
 // An parameter list with one parameter can be satisfied by a block as argument list.
-def sqrt(x: Double) = Math.sqrt(x)
+def sqrt(x: Double) = math.sqrt(x)
 val srqtOf25 = sqrt(25)
 val sqrtOf100 = sqrt{
   val x = 100 //Why here not grey?
@@ -91,9 +91,9 @@ log(DEBUG, "DEBUG: Our current log level is " + logLevel)
 // We write our own simple loop:
 @tailrec
 def repeat(count: Int)(body: => Unit): Unit = {
-  if(count <= 0){ return }
+  if(count <= 0){ return } //Interrupt the recursion
   body
-  repeat(count - 1)(body)
+  repeat(count - 1)(body) //Deepen the recursion
 }
 repeat(10){
   println("==========")

@@ -79,9 +79,9 @@ val namesString2 = names.reduce(_ + "~" + _)
 //Exercise:
 //How would you compute the shortest name from the List?
 def shortest(list: List[String]): String = {
-  ???
+  list.minBy(_.length)
 }
-
+val shortestName = shortest(names)
 //Cf.: reduce is a general aggregator function, like MAX, COUNT, SUM in SQL.
 
 //==================== groupBy ====================
