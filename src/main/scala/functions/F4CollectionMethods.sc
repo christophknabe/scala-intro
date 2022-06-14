@@ -42,6 +42,8 @@ val aNames3 = names filter (_ startsWith "A")
 //Task: Can we even remove the remaining parentheses?
 //val aNames4 = names filter _ startsWith "A"
 
+//Cf.: filter acts like a where-clause in SQL
+
 
 // If we also want the opposite names, we can use partition:
 val shortVsLongNames = names.partition(_.length < 5)
@@ -62,6 +64,7 @@ val lengths = names.map(_.length)
 val namesWithLength = names.map(x => x + x.length)
 // Conclusion: Underscore works only, if it stands for arg0, arg1, ...
 
+//Cf.: map acts like a SELECT-expression in SQL.
 
 //==================== reduce ====================
 //By reduce we can reduce a List to one result of the element type.
@@ -78,3 +81,11 @@ val namesString2 = names.reduce(_ + "~" + _)
 def shortest(list: List[String]): String = {
   ???
 }
+
+//Cf.: reduce is a general aggregator function, like MAX, COUNT, SUM in SQL.
+
+//==================== groupBy ====================
+// By groupBy we can group the elements by a key function.
+val byLength = names.groupBy(_.length)
+
+//Cf.: groupBy acts like a GROUP BY clause in SQL.
