@@ -37,10 +37,10 @@ This little course uses material from Baeldung.
 
 ## Missing Topics for Introductory Course
 * val/var
-* lazy val
+* Evaluation mode: strict vs. lazy vs. by-name
 * AnyVal/AnyRef, Type Hierarchy
-* Java compat
+* Java Compatibility features
 * Traits, Mixin-Programming
 * Collections: mutable/immutable, Collection Hierarchy
-* Option, Either for expressing optionality, failure
 * for comprehension
+* Option, Either for expressing optionality, failure

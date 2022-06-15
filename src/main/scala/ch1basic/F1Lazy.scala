@@ -4,7 +4,7 @@ object F1Lazy extends App {
 
   // Demonstration of the evaluation of
   // Strict values vs. Lazy values vs. function definitions
-  val aaa = {
+  val aaa = { // strict value will be initialized at definition
     println("Initializing aaa")
     1
   }
@@ -12,11 +12,11 @@ object F1Lazy extends App {
     println("Initializing bbb")
     2
   }
-  def ccc = {
+  def ccc = { // method will be computed at each invocation
     println("Computing ccc")
     3
   }
-  val ddd = {
+  val ddd = { // strict value will be initialized at definition
     println("Initializing ddd")
     4
   }

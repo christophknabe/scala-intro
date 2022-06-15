@@ -1,6 +1,6 @@
 package ch1basic
 
-object F3CollectionHierarchy extends App {
+object F3TraitsAndCollectionHierarchy extends App {
 
   // A trait is much like a Java interface.
   trait Swimmer {
@@ -62,7 +62,11 @@ object F3CollectionHierarchy extends App {
 
 
   // A trait with only abstract methods is just like a traditional Java interface.
+  // this.type is the type of the concrete object we have.
   trait Comparable[A] {
+    /** @return a negative number, if this comes before that,
+     *         0 if they are equal,
+     *         a positive number, if this comes after that.*/
     def compareTo(that: this.type ): Int //abstract
   }
 
@@ -71,17 +75,8 @@ object F3CollectionHierarchy extends App {
     override def compareTo(that: Level.this.type): Int = this.number - that.number
   }
 
-  trait Comparable2[A] {
-    def compareTo(that: this.type ): Int //abstract
-  }
-
-  // A class or object can extend one class or trait, and add many traits by keyword 'with'.
-  class Level2(val number: Int) extends Comparable2[Level2] {
-    override def compareTo(that: Level2.this.type): Int = this.number - that.number
-  }
-
   // The Scala Collection Framework offers two worlds:
   // immutable, and mutable collections with common traits.
-
+  // The mutable collections have additional methods for mutation.
 
 }
