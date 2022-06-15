@@ -39,6 +39,7 @@ This little course uses material from Baeldung.
 * val/var
 * lazy val
 * AnyVal/AnyRef, Type Hierarchy
+* Java compat
 * Traits, Mixin-Programming
 * Collections: mutable/immutable, Collection Hierarchy
 * Option, Either for expressing optionality, failure

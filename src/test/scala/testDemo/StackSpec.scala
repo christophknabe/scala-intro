@@ -27,10 +27,13 @@ class StackSpec extends AnyFunSpec with Matchers {
         testee.pop()
       }
     }
-    it("must return items in LIFO order") {
+    it("must return items in Last-In First-Out (LIFO) order") {
       val testee = new Stack
+      // We are testing an example usage:
       testee.push("A")
       testee.push("B")
+      testee.push("C")
+      testee.pop() mustBe "C"
       testee.pop() mustBe "B"
       testee.pop() mustBe "A"
       assertThrows[Stack.EmptyException]{
