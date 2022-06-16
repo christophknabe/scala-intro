@@ -10,6 +10,10 @@ class F2TypeHierarchy {
   // The primitive types need little storage (1 to 64 bits) and have no methods.
   // The reference types are complete objects and have methods like equals, hashCode, and toString.
 
+  // You can explicitly box an int, or unbox an Integer:
+  val nBoxed: Integer = Integer.valueOf(5) // Boxing explicitly
+  val nUnboxed: Int = nBoxed.intValue() // Unboxing explicitly
+
   // Since Java 5 they are automatically boxed/unboxed, which can lead to inefficient code:
   /*
   Integer i = 0; //Boxing
@@ -44,7 +48,7 @@ class F2TypeHierarchy {
   // Its only value is null, the null reference. To avoid in Scala.
 
   // Nothing is a subtype of all types. Does not contain information. Example:
-  val empty: List[Nothing] = List()
+  val empty = List()  // List[Nothing]
   // So I can concatenate a List[Nothing] with a List[String]
   val strings: List[String] = empty ++ List("alpha", "beta")
 

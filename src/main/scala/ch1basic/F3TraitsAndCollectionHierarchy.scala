@@ -21,7 +21,7 @@ object F3TraitsAndCollectionHierarchy extends App {
   trait Logging {
     private var count = 0
     def log(message: String) = {
-      count += 1;
+      count += 1
       println(s"#$count: $message")
     }
   }
