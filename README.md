@@ -49,4 +49,6 @@ I tried to cover them all in directory [ch1basic](src/main/scala/ch1basic),
 although we progressed only to class `F3TraitsAndCollectionHierarchy` with the 
 link to the Collections Hierarchy graph.
 
-## Day 8 Implementing a REST Server using the Play Webframework 2022-06-21 
+## Day 8 Implementing a REST Server using the Play Webframework 2022-06-21
+
+[The Play Framework for a REST Service](src/main/scala/PlayFramework.md)
