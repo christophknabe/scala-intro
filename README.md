@@ -1,5 +1,5 @@
 # Introduction to Scala
-This little course uses material from Baeldung.
+This little course partly uses material from Baeldung.
 
 ## Overview
 * Text [Introduction to Scala](https://www.baeldung.com/scala/scala-intro)
